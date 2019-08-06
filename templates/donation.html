@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>donations</title>
+	    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+<h1>Welcome to Rebooks books donation page!</h1>
+<h2>Why donate?</h2>
+<form action="/email" method="POST">
+	Email:<br>
+  <input type="text" name="email" value="Mickey">
+  <br>
+  Message:<br>
+  <input type="text" name="message" value="Mouse">
+  <br><br>
+	<input type="submit" name="hello" value="mail">
+</form>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<h1>
+Login form WITH session!
+</h1>
+
+{%if session['logged_in']%}
+Hi {{session['name']}}, you are logged in.
+{%endif%}
+
+<form action="/login" method="POST">
+  <input type="username" name="username" placeholder="Username">
+<input type="password" name="password" placeholder="Password">
+<input type="submit" value="Log in">
+</form>
+
+<form action="/signup" method="POST">
+  <input type="username" name="username" placeholder="Username">
+<input type="password" name="password" placeholder="Password">
+<input type="submit" value="Sign up">
+</form>
