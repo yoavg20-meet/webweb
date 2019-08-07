@@ -17,7 +17,7 @@ mail = Mail(app)
 
 @app.route('/')
 def home(): 
-    return render_template('donation.html')
+    return render_template('login.html')
     
 
 @app.route('/login', methods=['GET','POST'])
@@ -27,7 +27,10 @@ def login():
         if user != None and user.verify_password(request.form["password"]):
             login_session['name'] = user.username
             login_session['logged_in'] = True
-            return logged_in()
+
+            if request.form['username']=="admin":
+                return "admin page"
+            return render_template('donation.html')
         else:
             return redirect(url_for('signup'))
     return render_template('login.html')
@@ -43,6 +46,8 @@ def signup():
         user = get_user(request.form['username'])
         if user == None:
             add_user(request.form['username'],request.form['password'])
+        if request.form['username']=="admin":
+            return "admin page"
         return home()
 
 
@@ -70,3 +75,4 @@ def email():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
